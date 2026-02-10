@@ -103,61 +103,67 @@ d = थ द ध
 function findDirection() {
 
 let name = document.getElementById("name").value.trim();
-let ch = name.charAt(0);
+
+if (name === "") {
+    document.getElementById("result").innerHTML = "कृपया नाम लिखें";
+    return;
+}
+
+let ch = name[0];   // first character
 
 let group="", direction="", enemy="";
 
 // GARUD
-if ("अइउऋएऐओऔaeiou".includes(ch)) {
+if ("अइउऋएऐओऔaeiouAEIOU".includes(ch)) {
     group="गरुड़";
     direction="पूर्व";
     enemy="पश्चिम";
 }
 
 // MARJAR
-else if ("कखगघङkgQq".includes(ch)) {
+else if ("कखगघङkgKGqQ".includes(ch)) {
     group="मार्जार";
     direction="आग्नेय";
     enemy="वायव्य";
 }
 
 // SINGH
-else if ("चछजझञcjz".includes(ch)) {
+else if ("चछजझञcjCJzZ".includes(ch)) {
     group="सिंह";
     direction="दक्षिण";
     enemy="उत्तर";
 }
 
 // SWAN
-else if ("टठडढण".includes(ch) || ch === "T" || ch === "D") {
+else if ("टठडढण".includes(ch) || ch==="T" || ch==="D") {
     group="स्वान";
     direction="नैऋत्य";
     enemy="ईशान";
 }
 
 // SARP
-else if ("तथदधनnN".includes(ch) || ch === "t" || ch === "d") {
+else if ("तथदधनnN".includes(ch) || ch==="t" || ch==="d") {
     group="सर्प";
     direction="पश्चिम";
     enemy="पूर्व";
 }
 
 // MUSHAK
-else if ("पफबभमpbmf".includes(ch)) {
+else if ("पफबभमpbmfPBMF".includes(ch)) {
     group="मूषक";
     direction="वायव्य";
     enemy="आग्नेय";
 }
 
 // GAJ
-else if ("यरलवyrlvw".includes(ch)) {
+else if ("यरलवyrlvYRLVWW".includes(ch)) {
     group="गज";
     direction="उत्तर";
     enemy="दक्षिण";
 }
 
 // SHASHAK
-else if ("शषसहshx".includes(ch)) {
+else if ("शषसहshSHxX".includes(ch)) {
     group="शशक";
     direction="ईशान";
     enemy="नैऋत्य";
@@ -177,7 +183,9 @@ document.getElementById("result").innerHTML =
 }
 </script>
 
+
 </body>
 </html>
+
 
 
